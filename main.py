@@ -12,7 +12,7 @@ non_letters = numbers + symbols
 print("Welcome to the PyPassword!\n")
 print("############\n")
 
-pass_length = int(input("Password Length? (16+ characters long recommended):\n") or 16)
+pass_length = int(input("Password Length? (16+ characters long recommended):\n") or 24)
 
 pass_count = int(input("How many passwords do you need? (MIN. 1)") or 10)
 
