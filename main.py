@@ -14,9 +14,9 @@ print("Welcome to the PyPassword!\n")
 while True:
   print("############\n")
   
-  pass_length = int(input("Password Length? (16+ characters long recommended):\n") or 24)
+  pass_length = int(input("Password Length? (16+ characters long recommended - Default: 24):\n") or 24)
   
-  pass_count = int(input("How many passwords do you need? (MIN. 1)") or 10)
+  pass_count = int(input("How many passwords do you need? (MIN. 1 - Default: 10)") or 10)
   
   count_map = {
     'count_letters' : math.ceil(0.6 * pass_length),
