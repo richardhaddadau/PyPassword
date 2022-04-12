@@ -19,10 +19,11 @@ while True:
   pass_count = int(input("How many passwords do you need? (MIN. 1 - Default: 10)") or 10)
   
   count_map = {
-    'count_letters' : math.ceil(0.6 * pass_length),
     'count_numbers' : math.ceil(0.2 * pass_length),
     'count_symbols' : math.ceil(0.2 * pass_length)
   }
+  
+  count_letters = pass_length - count_map['count_numbers'] - count_map['count_symbols'];
   
   print("\n############\n")
   
@@ -31,24 +32,24 @@ while True:
   
   for rep in range(0, pass_count):
     new_password = []
-    
-    for item in range(1, count_map['count_letters']):
-      new_char = letters[random.randrange(0, len(letters) - 1)]
-      new_password.append(new_char)
       
-    for item in range(1, count_map['count_numbers']):
+    for item in range(0, count_map['count_numbers']):
       new_char = numbers[random.randrange(0, len(numbers) - 1)]
       new_password.append(new_char)
     
-    for item in range(1, count_map['count_symbols']):
+    for item in range(0, count_map['count_symbols']):
       new_char = symbols[random.randrange(0, len(symbols) - 1)]
+      new_password.append(new_char)
+
+    for item in range(0, count_letters):
+      new_char = letters[random.randrange(0, len(letters) - 1)]
       new_password.append(new_char)
     
     while True:
       legible = True
       random.shuffle(new_password)
       
-      for x in range(0,len(new_password) - 2):
+      for x in range(0, len(new_password) - 2):
         if new_password[0] in non_letters or (new_password[x] in non_letters and new_password[x+1] in non_letters):
           legible = False
   
